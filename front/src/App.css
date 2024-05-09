@@ -1,0 +1,252 @@
+/* Estilos generales */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #85858533;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(58, 58, 58) #333;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: orange;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border-radius: 20px;
+  border: 3px solid orange;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ccc;
+}
+
+/* Estilos para botones */
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para inputs */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: #007bff;
+}
+
+/* Estilos para tarjetas */
+.card {
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para contenedores */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para el sidebar */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #222;
+  overflow-x: hidden;
+  transition: width 0.5s;
+  padding-top: 60px;
+  z-index: 1000; /* Asegura que el sidebar esté por encima del contenido */
+}
+
+.sidebar .sidebar-wrapper {
+  padding: 20px;
+}
+
+.sidebar .sidebar-header h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+}
+
+.sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar ul.components li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul.components li a {
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.sidebar ul.components li a svg {
+  margin-right: 10px;
+}
+
+.sidebar ul.components li a span {
+  display: inline;
+  font-family: 'Roboto', sans-serif;
+}
+
+.sidebar ul.components li a:hover {
+  background-color: #444;
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar button {
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+}
+
+/* Estilos para el contenido */
+.content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.sidebar.toggled {
+  width: 70px;
+}
+
+.sidebar.toggled .sidebar-wrapper {
+  padding-left: 20px;
+}
+
+.sidebar.toggled .sidebar-header h3,
+.sidebar.toggled .user-profile {
+  display: none; /* Oculta el nombre de usuario cuando el sidebar está plegado */
+}
+
+.sidebar.toggled ul.components li a span {
+  display: none; /* Oculta los títulos cuando el sidebar está plegado */
+}
+
+.user-profile {
+  color: #fff;
+  background-color: #111;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.user-profile svg {
+  margin-right: 5px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 992px) {
+  .sidebar {
+      width: 70px;
+  }
+
+  .sidebar.toggled {
+      width: 250px;
+  }
+
+  .content {
+      margin-left: 70px;
+  }
+
+  .sidebar.toggled .sidebar-wrapper {
+      padding-left: 20px;
+  }
+
+  .sidebar.toggled .sidebar-header h3,
+  .sidebar.toggled .user-profile {
+      display: block; /* Muestra el nombre de usuario cuando el sidebar está desplegado en modo responsivo */
+  }
+
+  .sidebar.toggled ul.components li a span {
+      display: inline; /* Muestra los títulos cuando el sidebar está desplegado en modo responsivo */
+  }
+}
+
+.user-profile {
+  color: #fff;
+  background-color: #111;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.user-profile svg {
+  margin-right: 5px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 992px) {
+  .sidebar {
+      width: 70px;
+  }
+
+  .sidebar.toggled {
+      width: 250px;
+  }
+
+  .content {
+      margin-left: 70px;
+  }
+
+  .sidebar.toggled .sidebar-wrapper {
+      padding-left: 20px;
+  }
+}

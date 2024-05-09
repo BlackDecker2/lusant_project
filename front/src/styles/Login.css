@@ -1,0 +1,16 @@
+.futuristic-login {
+    background-color: #1a1a1a; /* Color de fondo oscuro */
+  }
+  
+  .futuristic-btn {
+    background-color: #ff4d94; /* Color de botón */
+    border-color: #ff4d94; /* Color del borde del botón */
+  }
+  
+  .futuristic-btn:hover {
+    background-color: #ff3366; /* Color de botón al pasar el ratón */
+    border-color: #ff3366; /* Color del borde del botón al pasar el ratón */
+  }
+/* 
+   */
+  

@@ -1,0 +1,202 @@
+/* Header.css */
+
+/* Estilos base del sidebar */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #333;
+    color: #fff;
+    transition: width 0.5s;
+    overflow-y: auto;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+/* Estilos cuando el sidebar está colapsado */
+.sidebar.toggled {
+    width: 70px;
+}
+
+/* Estilos para el fondo oscuro */
+.bg-dark{
+    top: -11%;
+    background-color: #333 !important;
+}
+
+
+.user-profile {
+    justify-content: space-between;
+    margin-left: 12%;
+    margin-top: 20%;
+    padding: 0px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile.collapsed {
+    justify-content: center;
+}
+
+.user-profile.collapsed span {
+    display: none;
+}
+
+/* Agrega estilos para los iconos */
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Agrega estilos específicos para el icono de usuario */
+.user-icon {
+    margin-top: 20px;
+}
+
+/* Ajusta el estilo del botón de hamburguesa para versiones responsivas */
+
+
+@media screen and (max-width: 992px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar.toggled {
+        width: 250px;
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    .sidebar-wrapper {
+        margin-top: 0;
+    }
+
+    /* Oculta el perfil cuando está plegado */
+    .user-profile.collapsed {
+        display: none;
+    }
+
+    /* Muestra solo los iconos cuando está plegado */
+    .icon-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .user-icon {
+        display: none;
+    }
+}
+
+
+/* Estilos para el botón de hamburguesa */
+.navbar-toggler {
+    margin-top:  20% !important;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none; /* Ocultar el botón de hamburguesa por defecto */
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    border-radius: 0%;
+}
+
+/* Estilos para el wrapper del sidebar */
+.sidebar-wrapper {
+    background-color: #333;
+    margin-top: -8%;
+    flex: 1; /* Hace que el sidebar-wrapper ocupe todo el espacio disponible en el sidebar */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea los elementos en el sidebar-wrapper en la parte superior */
+}
+
+/* Estilos para los elementos de la navegación */
+.nav-item {
+    margin-bottom: 10px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link span {
+    margin-left: 10px;
+}
+
+/* Estilos para el botón de logout */
+.btn-logout {
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Estilos para el contenedor del botón de logout */
+.logout-container {
+    justify-content: space-between;
+    margin-top: auto; /* Alinear el contenedor del botón de logout en la parte inferior del sidebar */
+    margin-left: 10%;
+    width: 75%; /* Coloca el botón de logout en la parte inferior del sidebar */
+}
+
+/* Header.css */
+
+/* Animación para la transición del sidebar */
+.sidebar {
+    width: 250px;
+    transition: width 0.5s;
+}
+
+.sidebar.toggled {
+    width: 70px;
+}
+
+/* Estilos específicos para dispositivos responsivos */
+@media screen and (max-width: 992px) {
+    .sidebar.toggled {
+        display: none; /* Ocultar el sidebar en dispositivos pequeños */
+    }
+
+    .navbar-toggler {
+        display: block !important; /* Mostrar el botón de despliegue en dispositivos responsivos */
+    }
+
+    .user-profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user-profile span {
+        display: none; /* Ocultar el texto del perfil en dispositivos pequeños */
+    }
+
+    .sidebar {
+        width: 250px; /* Ajusta el ancho del sidebar en dispositivos medianos */
+    }
+
+    .sidebar.toggled {
+        width: 70px; /* Ajusta el ancho del sidebar colapsado en dispositivos medianos */
+    }
+
+    /* Asegurar que el botón de la barra de navegación sea visible */
+    .navbar-toggler {
+        display: block !important;
+    }
+}

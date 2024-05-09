@@ -1,0 +1,154 @@
+/* Estilos para la tabla */
+.tableContainer {
+  overflow-x: auto;
+  margin-top: 7%;
+  margin-left: 7%;
+}
+
+.tableHeadCell {
+  font-weight: bold;
+  color: #fff; /* Color del texto */
+  background-color: #a5bda6; /* Color de fondo */
+}
+
+/* Estilos para las filas de la tabla */
+.tableRow {
+  cursor: pointer;
+}
+
+.tableRow:hover {
+  background-color: #33333327;
+}
+
+.tableRowHead {
+  cursor: auto;
+  background-color: #333;
+  border: none !important;
+  color: #fff7f7fb;
+}
+
+/* Estilos para el TextField de búsqueda */
+.searchField {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: none !important; /* Forzar la eliminación del borde con !important */
+  padding: 0; /* Anula el relleno definido en los estilos generales */
+}
+
+/* Estilos para el borde del TextField */
+.MuiOutlinedInput-root {
+  border: none !important; /* Forzar la eliminación del borde con !important */
+}
+
+/* Estilos para el borde del TextField */
+.MuiOutlinedInput-notchedOutline {
+  border: none !important; /* Forzar la eliminación del borde con !important */
+}
+
+/* Estilos para el botón de creación de usuario */
+.createButton {
+  margin-left: 10px; /* Espacio entre el campo de búsqueda y el botón */
+}
+
+.cellHead {
+  color: #fffefe !important;
+}
+
+/* Estilos para los botones de acciones */
+.actionButton {
+  margin-right: 5px;
+}
+
+/* Estilos para los detalles colapsables */
+.collapseBox {
+  margin: 10px 0;
+}
+
+.collapseTitle {
+  font-weight: bold;
+}
+
+/* Estilos para la paginación */
+.paginationContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.paginationText {
+  margin-right: 10px;
+}
+
+/* Estilos para los controles de paginación */
+.paginationControl {
+  margin-left: 10px;
+}
+
+/* Ocultar celdas de Email y Rol en pantallas pequeñas */
+.hiddenSmall {
+  display: none;
+}/* Estilos para dispositivos de pantalla pequeña */
+
+/* Estilos para la animación de mostrar el modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in-out; /* Duración y tipo de animación */
+}
+
+
+/* Estilos CSS para dispositivos pequeños */
+@media screen and (max-width: 768px) {
+  /* Ajustar el tamaño y el espaciado de la paginación en dispositivos pequeños */
+  .paginationContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .MuiTablePagination-actions {
+    margin-top: 10px;
+  }
+
+  .MuiTablePagination-select {
+    margin-bottom: 10px;
+  }
+}
+
+/* Estilos CSS para dispositivos pequeños */
+@media screen and (max-width: 768px) {
+  /* Ocultar la tercera y cuarta columna en dispositivos pequeños */
+  .tableRowHead .responsive-hidden {
+    display: none;
+  }
+}
+/* Estilos CSS para dispositivos pequeños */
+@media screen and (max-width: 768px) {
+  /* Ocultar las tres columnas en dispositivos pequeños */
+  .d-none {
+    display: none !important;
+  }
+
+  /* Modificar el paginador para que sea más acorde al diseño responsive */
+  .paginationContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .MuiTablePagination-actions {
+    flex-wrap: wrap;
+  }
+
+  .MuiTablePagination-select {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
