@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 import { FaHome, FaInfo, FaUserPlus, FaSignOutAlt, FaBars, FaUser } from "react-icons/fa";
+import { PiSunglassesFill } from "react-icons/pi";
 import { FaUserDoctor } from "react-icons/fa6";
+import axios from 'axios';
 import "../styles/Header.css"; 
 
 function Header(props) {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [patientsSubMenuOpen, setPatientsSubMenuOpen] = useState(false);
 
     function toggleSidebar() {
         setIsMenuOpen(!isMenuOpen);
+    }
+
+    function togglePatientsSubMenu() {
+        setPatientsSubMenuOpen(!patientsSubMenuOpen);
     }
 
     function logMeOut() {
@@ -67,10 +73,15 @@ function Header(props) {
                                 <Link className="nav-link" to="/about"><FaInfo /><span> About</span></Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/register"><FaUserPlus /><span> Register</span></Link>
-                            </li>
-                            <li className="nav-item">
                                 <Link className="nav-link" to="/opticalusers"><FaUserDoctor/><span> Optical Users</span></Link>
+                            </li>
+                            <li className="nav-item" onMouseEnter={() => setIsMenuOpen(true)} onMouseLeave={() => setIsMenuOpen(true)}>
+                                <Link className="nav-link" to="/patients"><PiSunglassesFill /><span> Patients</span></Link>
+                                <ul className="sub-menu">
+                                    <li>
+                                        <Link className="nav-link" to="/clinicorder">Clinic Order</Link>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -78,7 +89,7 @@ function Header(props) {
                         <div className="logout-container">
                             <button className="btn btn-danger btn-logout" onClick={logMeOut}>
                                 <FaSignOutAlt />
-                                <span>{!isMenuOpen ? null : 'Login'}</span>
+                                <span>{!isMenuOpen ? null : 'Logout'}</span>
                             </button>
                         </div>
                     )}

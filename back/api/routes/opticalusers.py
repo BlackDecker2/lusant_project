@@ -28,6 +28,50 @@ def list_users():
     finally:
         cur.close()
 
+@users_bp.route('/list-optometrists', methods=['GET'])
+def list_optometrists():
+    page = int(request.args.get('page', 1))
+    per_page = int(request.args.get('per_page', 5))
+
+    start_index = (page - 1) * per_page
+    end_index = start_index + per_page
+
+    cur = mysql.connection.cursor()
+
+    try:
+        cur.execute("SELECT * FROM opticalusers WHERE rol = 'Optómetra' LIMIT %s, %s", (start_index, per_page))
+        optometrists = cur.fetchall()
+        return jsonify(optometrists), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        cur.close()
+
+@users_bp.route('/list-recepcionists', methods=['GET'])
+def list_recepcionists():
+    page = int(request.args.get('page', 1))
+    per_page = int(request.args.get('per_page', 5))
+
+    start_index = (page - 1) * per_page
+    end_index = start_index + per_page
+
+    cur = mysql.connection.cursor()
+
+    try:
+        cur.execute("SELECT * FROM opticalusers WHERE rol = 'Recepcionista' LIMIT %s, %s", (start_index, per_page))
+        recepcionists = cur.fetchall()
+        return jsonify(recepcionists), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        cur.close()
+
+
+
 @users_bp.route('/get-user/<dni>', methods=['GET'])
 def get_user(dni):
     cur = mysql.connection.cursor()

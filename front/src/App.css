@@ -9,7 +9,7 @@ body {
 /* Works on Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(58, 58, 58) #333;
+  scrollbar-color: rgb(226, 226, 226) #33333300;
 }
 
 /* Works on Chrome, Edge, and Safari */

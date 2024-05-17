@@ -167,6 +167,24 @@
     width: 70px;
 }
 
+.sidebar-wrapper .nav-item .sub-menu {
+    display: none;
+    margin-left: 23%;
+    padding: 3px;
+    border-radius: 4px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 1s ease-out;
+}
+
+.sidebar-wrapper .nav-item:hover .sub-menu {
+    display: list-item block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+
 /* Estilos específicos para dispositivos responsivos */
 @media screen and (max-width: 992px) {
     .sidebar.toggled {

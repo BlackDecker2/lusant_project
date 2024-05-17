@@ -1,0 +1,70 @@
+
+
+.searchContainer {
+  display: flex;
+  justify-content: flex-end; /* Ajusta la alineación a la derecha */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  background-color: #ffffff00 !important;
+  margin-top: 1% !important;
+  width: 60%; /* Ajusta el ancho del campo de búsqueda según sea necesario */
+  margin-right: 2% !important; /* Agrega margen derecho para separarlo del botón */
+}
+
+.createButton {
+  margin-top: 0.5% !important;
+  margin-right: 12% !important;
+  width: 200px; /* Ajusta el ancho del botón según sea necesario */ 
+}
+
+.clinicOrderList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+  
+  .clinicOrderCard {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .clinicOrderCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .toggleButton {
+    margin-top: -40px;
+  }
+  
+  .toggleButton:hover {
+    background-color: transparent;
+  }
+  
+  .toggleButton svg {
+    font-size: 32px;
+    color: #555;
+  }
+  
+  .toggleButton svg:hover {
+    color: #333;
+  }
+  
+  .toggleButton:focus {
+    outline: none;
+  }
+  
+  .clinicOrderCard .MuiCollapse-container {
+    transition: height 0.3s ease-in-out;
+  }
+  

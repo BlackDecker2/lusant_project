@@ -7,18 +7,28 @@ clinicorders_bp = Blueprint('clinicorders', __name__)
 
 @clinicorders_bp.route('/list-clinicorders', methods=['GET'])
 def list_clinicorders():
-    page = int(request.args.get('page', 1))
-    per_page = int(request.args.get('per_page', 5))
-
-    start_index = (page - 1) * per_page
-    end_index = start_index + per_page
-
     cur = mysql.connection.cursor()
 
     try:
-        cur.execute("SELECT * FROM clinicorder LIMIT %s, %s", (start_index, per_page))
+        cur.execute("SELECT * FROM clinicorder")
         clinicorders = cur.fetchall()
-        return jsonify(clinicorders), 200
+
+        formatted_clinicorders = []
+        for clinicorder in clinicorders:
+            formatted_clinicorder = {
+                'authorization_number': clinicorder[0],
+                'id_patient': clinicorder[1],
+                'id_optometrist': clinicorder[2],
+                'id_recepcionist': clinicorder[3],
+                'payment': clinicorder[4],
+                'reason_visit': clinicorder[5],
+                'date': clinicorder[6],
+                'deliver_date': clinicorder[7],
+                'observation': clinicorder[8]
+            }
+            formatted_clinicorders.append(formatted_clinicorder)
+
+        return jsonify(formatted_clinicorders), 200
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -81,6 +91,8 @@ def create_clinicorder():
     finally:
         cur.close()
 
+
+
 @clinicorders_bp.route('/edit-clinicorder/<authorization_number>', methods=['PUT'])
 def edit_clinicorder(authorization_number):
     data = request.json
@@ -106,6 +118,22 @@ def edit_clinicorder(authorization_number):
         if not existing_clinicorder:
             return jsonify({'error': 'Clinicorder does not exist'}), 404
 
+        # Verificar si los IDs de las claves externas existen en las tablas relacionadas
+        cur.execute("SELECT * FROM patients WHERE dni = %s", (id_patient,))
+        existing_patient = cur.fetchone()
+        if not existing_patient:
+            return jsonify({'error': 'Patient ID does not exist'}), 404
+
+        cur.execute("SELECT * FROM opticalusers WHERE dni = %s", (id_optometrist,))
+        existing_optometrist = cur.fetchone()
+        if not existing_optometrist:
+            return jsonify({'error': 'Optometrist ID does not exist'}), 404
+
+        cur.execute("SELECT * FROM opticalusers WHERE dni = %s", (id_recepcionist,))
+        existing_recepcionist = cur.fetchone()
+        if not existing_recepcionist:
+            return jsonify({'error': 'Recepcionist ID does not exist'}), 404
+
         # Actualizar la orden clínica en la base de datos
         cur.execute("UPDATE clinicorder SET idPatient = %s, idOptometrist = %s, idRecepcionist = %s, payment = %s, reasonVisit = %s, date = %s, deliverDate = %s, observation = %s WHERE authorizationNumber = %s", 
                     (id_patient, id_optometrist, id_recepcionist, payment, reason_visit, date, deliver_date, observation, authorization_number))
@@ -116,10 +144,14 @@ def edit_clinicorder(authorization_number):
         return jsonify({'message': 'Clinicorder updated successfully'}), 200
 
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        # Loguear el error para depuración
+        print("Error:", e)
+        return jsonify({'error': 'An error occurred while updating clinicorder'}), 500
 
     finally:
         cur.close()
+
+
 
 
 @clinicorders_bp.route('/delete-clinicorder/<authorization_number>', methods=['DELETE'])

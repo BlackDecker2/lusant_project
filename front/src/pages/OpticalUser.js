@@ -23,14 +23,15 @@ import {
   KeyboardArrowDown,
   KeyboardArrowUp,
   Delete,
+  Edit,
   Add,
   MoreVert,
 } from "@mui/icons-material";
 import TablePagination from "@mui/material/TablePagination";
 import "../styles/pagesUsers.css"; // Importa el archivo CSS donde se definen los estilos
-import RegisterUserOpticaModal from "../components/modals/RegisterUserOpticaModal";
-import EditUserOpticaModal from "../components/modals/EditUserOptica";
-import DeleteUserOpticaModal from "../components/modals/DeleteUserOptica";
+import RegisterUserOpticaModal from "../components/modals/opticaluser/RegisterUserOpticaModal";
+import EditUserOpticaModal from "../components/modals/opticaluser/EditUserOptica";
+import DeleteUserOpticaModal from "../components/modals/opticaluser/DeleteUserOptica";
 
 const OpticalUsers = (props) => {
   const [openModal, setOpenModal] = useState(false);
@@ -253,7 +254,8 @@ const OpticalUsers = (props) => {
                       open={Boolean(anchorEl) && selectedUserId === user[0]}
                       onClose={handleCloseActionsMenu}
                     >
-                      <MenuItem onClick={handleOpenEditModal}>Editar</MenuItem>
+                      <MenuItem onClick={handleOpenEditModal}>
+                        <Edit/>  Editar</MenuItem>
                       {/* Aquí agregamos el modal */}
                       <EditUserOpticaModal
                         open={isModalOpen}

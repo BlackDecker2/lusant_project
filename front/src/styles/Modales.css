@@ -36,6 +36,13 @@
   width: 100%;
 }
 
+#modal-container .observation-text {
+  border: 1px solid #ccc; /* Define el borde */
+  border-radius: 4px; /* Define el radio de borde */
+  font-size: 12px; /* Define el tamaño de fuente */
+  resize: vertical; /* Permite que el usuario redimensione verticalmente el campo de texto */
+}
+
 
 /* Modales.css */
 .modal-enter {
@@ -57,8 +64,11 @@
 }
 
 #modal-container input {
-  background-color: #ffffff !important;
+  background-color: #eeebebbb !important;
   color: #000000 !important;
+  border: 1px none #ccc; /* Añade un borde de 1px sólido con color gris claro */
+  border-radius: 3px;
+  /**border:0cqmin;*/
 }
 
 #register-modal-title {
@@ -75,11 +85,11 @@
 }
 
 #modal-container .custom-list {
-  background-color: #ffffff;
-  color: #fff;
-  border: 1px solid #555;
+  background-color: #d3d1d1;
+  color: #030303;
+  border: 1px double #e7e5e5;
   border-radius: 5px;
-  width: 100%;
+
 }
 
 .buttonmodal{

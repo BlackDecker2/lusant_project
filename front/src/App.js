@@ -7,6 +7,8 @@ import Profile from './components/Profile';
 import useToken from './components/useToken';
 import Register from './components/Register';
 import OpticalUsers from './pages/OpticalUser';
+import PatientUsers from './pages/Patient';
+import ClinicOrder from './pages/ClinicOrder';
 
 function App() {
     const { token, removeToken, setToken } = useToken();
@@ -25,6 +27,9 @@ function App() {
                             <Route exact path="/profile" element={<Profile token={token} setToken={setToken} />} />
                             <Route exact path="/register" element={<Register token={token} setToken={setToken} />} />
                             <Route exact path="/opticalusers" element={<OpticalUsers token={token} setToken={setToken} />} />
+                            <Route exact path="/patients" element={<PatientUsers token={token} setToken={setToken} />} />
+                            <Route exact path="/clinicorder" element={<ClinicOrder token={token} setToken={setToken} />} />
+
                         </Routes>
                     )}
                 </div>
